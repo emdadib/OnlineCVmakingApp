@@ -10,6 +10,7 @@ using OCVM.ViewModels;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace OCVM.Controllers
 {
@@ -30,6 +31,7 @@ namespace OCVM.Controllers
             trainingRepository = training;
             contactRepository = contact;
         }
+        [Authorize]
         public IActionResult Index()
         {
             return View();

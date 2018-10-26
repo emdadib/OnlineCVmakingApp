@@ -117,7 +117,7 @@ namespace OCVM.Controllers
             var ex = experienceRepository.GetById(id);
             experienceRepository.Delete(ex);
             //Have to Change the redirect method
-            return RedirectToAction("AllCvDetails");
+            return RedirectToAction("ExpInfo");
         }
 
 

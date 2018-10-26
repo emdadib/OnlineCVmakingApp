@@ -120,7 +120,7 @@ namespace OCVM.Controllers
             var tr = trainingRepository.GetById(id);
             trainingRepository.Delete(tr);
             //Have to Change the redirect method
-            return RedirectToAction("AllCvDetails");
+            return RedirectToAction("TrnInfo");
         }
     }
 }

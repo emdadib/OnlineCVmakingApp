@@ -117,5 +117,13 @@ namespace OCVM.Controllers
             educationRepository.Update(edu);
             return RedirectToAction("AllCvDetails");
         }
+
+        public IActionResult Delete(int id)
+        {
+            var ct = educationRepository.GetById(id);
+            educationRepository.Delete(ct);
+
+            return RedirectToAction("EduInfo");
+        }
     }
 }
