@@ -1,0 +1,46 @@
+﻿@model OCVM.ViewModels.PersonalView
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div class="eleven columns">
+    <div class="padding-right">
+
+
+        <ul class="resumes-list alternative">
+
+            <li>
+                <a asp-action="Details" asp-controller="CvView">
+                    @*Details View Link*@
+                    <img src="images/resumes-list-avatar-01.png" alt="">
+                    <div class="resumes-list-content">
+                        <h4>@Model.FullName <span>@Model.Skill</span></h4>
+                        <span><i class="fa fa-map-marker"></i>@Model.CurrentLocation</span>
+                        <span><i class="fa fa-money"></i>@Model.ExpectedSalary </span>
+                        <p>@Model.Objective</p>
+
+                        <div class="skills">
+                            <span>@Model.Training_Title</span>
+                            <span>@Model.Designation</span>
+                            <span>@Model.Exam_Degree_Title</span>
+                        </div>
+                        <div class="clearfix"></div>
+
+                    </div>
+                </a>
+                <div class="clearfix"></div>
+            </li>
+
+        </ul>
+
+        <div class="clearfix"></div>
+
+
+        @if (Model.UserPicture != null && System.IO.File.Exists(System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "wwwroot", "UserImages\\" + Model.UserPicture)))
+        {
+            <img src="~/UserImages/@Html.DisplayFor(m => m.UserPicture)" alt="@Model.FullName"
+                 width="100" class="img-responsive" />
+
+
+        }
+    </div>
+</div>

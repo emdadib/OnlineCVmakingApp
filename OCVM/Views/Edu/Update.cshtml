@@ -1,0 +1,91 @@
+﻿@model Education
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_UserDashboard.cshtml";
+}
+
+<div class="container">
+
+    <div class="col-sm-6">
+        <h2><i class="fa fa-edit"></i>Update Your Personal Details</h2>
+    </div>
+
+</div>
+<hr />
+
+<div class="container">
+    <form asp-controller="Edu" asp-action="Update" method="post" class="form-horizontal" role="form">
+
+        <input type="hidden" asp-for="EduID" />
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Exam/Degree Title</label>
+            <div class="col-sm-6">
+                <input asp-for="Exam_Degree_Title" class="form-control" placeholder="" />
+                <span asp-validation-for="Exam_Degree_Title" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Group/Major Subject</label>
+            <div class="col-sm-6">
+                <input asp-for="Group_Major_Subject" class="form-control" placeholder="" />
+                <span asp-validation-for="Group_Major_Subject" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Institute/University</label>
+            <div class="col-sm-6">
+                <input asp-for="Institute_University" class="form-control" placeholder="" />
+                <span asp-validation-for="Institute_University" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Result</label>
+            <div class="col-sm-2">
+                <input asp-for="Result" class="form-control" placeholder="" />
+                <span asp-validation-for="Result" class="text-danger"></span>
+            </div>
+
+            <label class="col-sm-1 control-label">CGPA</label>
+            <div class="col-sm-3">
+                <input asp-for="CGPA" class="form-control" placeholder="" />
+                <span asp-validation-for="CGPA" class="text-danger"></span>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Scale</label>
+            <div class="col-sm-2">
+                <input asp-for="Scale" class="form-control" placeholder="Scale" />
+                <span asp-validation-for="Scale" class="text-danger"></span>
+            </div>
+            <label class="col-sm-1 control-label">Duration</label>
+            <div class="col-sm-3">
+                <input asp-for="Duration" class="form-control" placeholder="Duration" />
+                <span asp-validation-for="Duration" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Passing Year</label>
+            <div class="col-sm-2">
+                <input asp-for="Year_Of_Passing" class="form-control" placeholder="" />
+                <span asp-validation-for="Year_Of_Passing" class="text-danger"></span>
+            </div>
+
+            <label class="col-sm-1 control-label">Achievement</label>
+            <div class="col-sm-3">
+                <input asp-for="Achievement" class="form-control" placeholder="Achievement" />
+                <span asp-validation-for="Achievement" class="text-danger"></span>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="form-group">
+            <div class="btn-group col-md-offset-3 col-md-6">
+                <a class="btn btn-info" asp-controller="Edu" asp-action="EduInfo"><i class="fa fa-arrow-circle-o-left"></i> Back</a>
+                <button class="btn btn-primary" type="submit" asp-controller="Edu" asp-action="Update">Update &nbsp;<i class="fa fa-edit"></i></button>
+            </div>
+        </div>
+    </form>
+</div>
+<hr />

@@ -1,0 +1,84 @@
+﻿@model OCVM.Models.Education
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Education</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Exam_Degree_Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Exam_Degree_Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Group_Major_Subject)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Group_Major_Subject)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Institute_University)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Institute_University)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Result)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Result)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CGPA)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CGPA)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Scale)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Scale)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Year_Of_Passing)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Year_Of_Passing)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Duration)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Duration)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Achievement)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Achievement)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonalDetail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PersonalDetail.PersonalID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TraningID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TraningID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.EduID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

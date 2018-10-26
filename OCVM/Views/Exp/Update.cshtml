@@ -1,0 +1,87 @@
+﻿@model Experience
+
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_UserDashboard.cshtml";
+}
+
+<div class="container">
+
+    <div class="col-sm-6">
+        <h2><i class="fa fa-edit"></i>Update Your Job Experiance</h2>
+    </div>
+
+</div>
+
+
+<div class="container">
+
+    <div class="col-sm-6">
+        <h2><i class="fa fa-edit"></i>Update Your Personal Details</h2>
+    </div>
+
+</div>
+<hr />
+
+<div class="container">
+    <form asp-controller="Exp" asp-action="Update" method="post" class="form-horizontal" role="form">
+
+        <input type="hidden" asp-for="ExperienceID" />
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Company Name</label>
+            <div class="col-sm-6">
+                <input asp-for="Company_Name" class="form-control" />
+                <span asp-validation-for="Company_Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Company Business</label>
+            <div class="col-sm-6">
+                <input asp-for="Company_Business" class="form-control" />
+                <span asp-validation-for="Company_Business" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Department</label>
+            <div class="col-sm-6">
+                <input asp-for="Department" class="form-control" />
+                <span asp-validation-for="Department" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Designation</label>
+            <div class="col-sm-6">
+                <input asp-for="Designation" class="form-control" />
+                <span asp-validation-for="Designation" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Skill</label>
+            <div class="col-sm-6">
+                <input asp-for="Skill" class="form-control" />
+                <span asp-validation-for="Skill" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Start & End Date</label>
+            <div class="col-sm-3">
+                <input asp-for="start_Date" class="form-control" />
+                <span asp-validation-for="start_Date" class="text-danger"></span>
+            </div>
+            <div class="col-sm-3">
+                <input asp-for="End_Date" class="form-control" />
+                <span asp-validation-for="End_Date" class="text-danger"></span>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="form-group">
+            <div class="btn-group col-md-offset-3 col-md-6">
+                <a class="btn btn-info" asp-controller="Exp" asp-action="ExpInfo"><i class="fa fa-arrow-circle-o-left"></i> Back</a>
+                <button class="btn btn-primary" type="submit" asp-controller="Exp" asp-action="Update">Update &nbsp;<i class="fa fa-save"></i></button>
+            </div>
+        </div>
+    </form>
+</div>
+<hr />

@@ -1,0 +1,94 @@
+﻿@model OCVM.Models.PersonalDetail
+
+@{
+    Layout = "~/Views/Shared/_UserDashboard.cshtml";
+}
+
+<div class="container">
+
+    <div class="col-sm-6">
+        <h2><i class="fa fa-edit"></i>Update Your Personal Details</h2>
+    </div>
+
+</div>
+<hr />
+
+<div class="container">
+    <form asp-controller="Home" asp-action="Update" method="post" class="form-horizontal" role="form">
+
+        <input type="hidden" asp-for="PersonalID" />
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Your Full Name</label>
+            <div class="col-sm-6">
+                <input asp-for="FullName" class="form-control" placeholder="Religion" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Father's Name</label>
+            <div class="col-sm-6">
+                <input asp-for="FathersName" class="form-control" placeholder="Religion" />
+                <span asp-validation-for="FathersName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Mother's Name</label>
+            <div class="col-sm-6">
+                <input asp-for="MothersName" class="form-control" placeholder="Religion" />
+                <span asp-validation-for="MothersName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Date Of Birth</label>
+            <div class="col-sm-6">
+                <input asp-for="DateOfBirth" class="form-control" placeholder="Religion" />
+                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Gender</label>
+            <div class="col-sm-6">
+                <select asp-for="Gender" class="form-control" placeholder="Date of Birth">
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                </select>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Religion</label>
+            <div class="col-sm-6">
+                <input asp-for="Religion" class="form-control" placeholder="Religion" />
+                <span asp-validation-for="Religion" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Nationality</label>
+            <div class="col-sm-6">
+                <input asp-for="Nationality" class="form-control" placeholder="Nationality" />
+                <span asp-validation-for="Nationality" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Marital Status</label>
+            <div class="col-sm-6">
+                <input asp-for="MaritalStatus" class="form-control" placeholder="Marital Status" />
+                <span asp-validation-for="MaritalStatus" class="text-danger"></span>
+            </div>
+        </div>
+        <!-- Title -->
+        
+        <br />
+
+        <div class="form-group">
+            <div class="btn-group col-md-offset-3 col-md-6">
+                <input class="btn btn-info" type="submit" value="Back" asp-controller="Home" asp-action="Index" />
+                <button class="btn btn-primary" type="submit" asp-controller="Home" asp-action="Update">Update &nbsp;<i class="fa fa-edit"></i></button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,121 @@
+﻿@model OCVM.ViewModels.TrainingVm
+@{
+    Layout = "~/Views/Shared/_UserDashboard.cshtml";
+
+}
+<div class="container">
+
+    <div class="col-sm-6">
+        <h2><i class="fa fa-plus-circle"></i> Training</h2>
+    </div>
+
+</div>
+<hr />
+
+
+
+<div class="container">
+    <form asp-controller="Training" asp-action="Create" method="post" class="form-horizontal" role="form">
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-sm-3 control-label">You are</label>
+            <div class="col-sm-6">
+                <select asp-for="Training.PersonalID" class="form-control" asp-items="@ViewData["Pid"] as List<SelectListItem>"></select>
+            </div>
+        </div>
+        <div id="field">
+            <div id="field0">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Training Title</label>
+                    <div class="col-sm-6">
+                        <input asp-for="Training.Training_Title" class="form-control" placeholder="" />
+                        <span asp-validation-for="Training.Training_Title" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Topics Covered</label>
+                    <div class="col-sm-6">
+                        <input asp-for="Training.Topics_Covered" class="form-control" placeholder="" />
+                        <span asp-validation-for="Training.Topics_Covered" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Institute</label>
+                    <div class="col-sm-6">
+                        <input asp-for="Training.Institute" class="form-control" placeholder="" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Country</label>
+                    <div class="col-sm-2">
+                        <input asp-for="Training.Country" class="form-control" placeholder="" />
+                        <span asp-validation-for="Training.Country" class="text-danger"></span>
+                    </div>
+                    <label class="col-sm-1 control-label">Year</label>
+                    <div class="col-sm-3">
+                        <input asp-for="Training.Training_Year" class="form-control" placeholder="Training Year" />
+                        <span asp-validation-for="Training.Training_Year" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Duration</label>
+                    <div class="col-sm-2">
+                        <input asp-for="Training.Duration" class="form-control" placeholder="Duration" />
+                    </div>
+                    <label class="col-sm-1 control-label">Location</label>
+                    <div class="col-sm-3">
+                        <input asp-for="Training.Location" class="form-control" placeholder="Location" />
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <!-- Button -->
+        <div class="form-group">
+
+            <div class="col-sm-offset-3 btn btn-group">
+                &nbsp;&nbsp;&nbsp;
+                <button id="add-more" name="add-more" class="btn btn-primary">Add More</button>
+            </div>
+            <div class="btn btn-group col-sm-offset-2">
+                <input class="btn btn-info" type="submit" value="Return" asp-controller="Home" asp-action="Index" />
+                <button class="btn btn-primary" type="submit" asp-controller="Training" asp-action="Create">Save & Continue &nbsp;<i class="fa fa-arrow-circle-right"></i></button>
+            </div>
+
+        </div>
+
+    </form>
+</div>
+<hr />
+<br />
+<br />
+<script type="text/javascript">
+   $(document).ready(function () {
+
+    var next = 0;
+    $("#add-more").click(function(e){
+        e.preventDefault();
+        var addto = "#field" + next;
+        var addRemove = "#field" + (next);
+        next = next + 1;
+        var newIn = ' <div id="field' + next + '" name="field' + next + '"><!-- Text input--><div class="form-group"> <label class="col-sm-3 control-label">Training Title</label> <div class="col-sm-6"> <input asp-for="Training.Training_Title" class="form-control" placeholder=""/> <span asp-validation-for="Training.Training_Title" class="text-danger"></span> </div></div><div class="form-group"> <label class="col-sm-3 control-label">Topics Covered</label> <div class="col-sm-6"> <input asp-for="Training.Topics_Covered" class="form-control" placeholder=""/> <span asp-validation-for="Training.Topics_Covered" class="text-danger"></span> </div></div><div class="form-group"> <label class="col-sm-3 control-label">Institute</label> <div class="col-sm-6"> <input asp-for="Training.Institute" class="form-control" placeholder=""/> </div></div><div class="form-group"> <label class="col-sm-3 control-label">Country</label> <div class="col-sm-2"> <input asp-for="Training.Country" class="form-control" placeholder=""/> <span asp-validation-for="Training.Country" class="text-danger"></span> </div><label class="col-sm-1 control-label">Year</label> <div class="col-sm-3"> <input asp-for="Training.Training_Year" class="form-control" placeholder="Training Year"/> <span asp-validation-for="Training.Training_Year" class="text-danger"></span> </div></div><div class="form-group"> <label class="col-sm-3 control-label">Duration</label> <div class="col-sm-2"> <input asp-for="Training.Duration" class="form-control" placeholder="Duration"/> </div><label class="col-sm-1 control-label">Location</label> <div class="col-sm-3"> <input asp-for="Training.Location" class="form-control" placeholder="Location"/> </div></div>';
+        var newInput = $(newIn);
+        var removeBtn = '<div class=form-group><button id="remove' + (next - 1) + '" class="col-sm-offset-3 btn btn-danger remove-me" >Remove</button></div></div></div><div id="field">';
+        var removeButton = $(removeBtn);
+        $(addto).after(newInput);
+        $(addRemove).after(removeButton);
+        $("#field" + next).attr('data-source',$(addto).attr('data-source'));
+        $("#count").val(next);
+
+            $('.remove-me').click(function(e){
+                e.preventDefault();
+                var fieldNum = this.id.charAt(this.id.length-1);
+                var fieldID = "#field" + fieldNum;
+                $(this).remove();
+                $(fieldID).remove();
+            });
+    });
+
+});
+</script>

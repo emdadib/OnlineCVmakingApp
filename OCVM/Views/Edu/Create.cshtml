@@ -1,0 +1,137 @@
+﻿@model OCVM.ViewModels.EduVm
+@{
+    Layout = "~/Views/Shared/_UserDashboard.cshtml";
+
+}
+<div class="container">
+
+    <div class="col-sm-6">
+        <h2><i class="fa fa-plus-circle"></i> Education</h2>
+    </div>
+
+</div>
+<hr />
+
+
+
+<div class="container">
+    <form asp-controller="Exp" asp-action="Create" method="post" class="form-horizontal" role="form">
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-sm-3 control-label">You are</label>
+            <div class="col-sm-6">
+                <select asp-for="Education.PersonalID" class="form-control" asp-items="@ViewData["Pid"] as List<SelectListItem>"></select>
+            </div>
+        </div>
+        <div id="field">
+            <div id="field0">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Exam/Degree Title</label>
+                    <div class="col-sm-6">
+                        <input asp-for="Education.Exam_Degree_Title" class="form-control" placeholder="" />
+                        <span asp-validation-for="Education.Exam_Degree_Title" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Group/Major Subject</label>
+                    <div class="col-sm-6">
+                        <input asp-for="Education.Group_Major_Subject" class="form-control" placeholder="" />
+                        <span asp-validation-for="Education.Group_Major_Subject" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Institute/University</label>
+                    <div class="col-sm-6">
+                        <input asp-for="Education.Institute_University" class="form-control" placeholder="" />
+                        <span asp-validation-for="Education.Institute_University" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Result</label>
+                    <div class="col-sm-2">
+                        <input asp-for="Education.Result" class="form-control" placeholder="" />
+                        <span asp-validation-for="Education.Result" class="text-danger"></span>
+                    </div>
+
+                    <label class="col-sm-1 control-label">CGPA</label>
+                    <div class="col-sm-3">
+                        <input asp-for="Education.CGPA" class="form-control" placeholder="" />
+                        <span asp-validation-for="Education.CGPA" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Scale</label>
+                    <div class="col-sm-2">
+                        <input asp-for="Education.Scale" class="form-control" placeholder="Scale" />
+                        <span asp-validation-for="Education.Scale" class="text-danger"></span>
+                    </div>
+                    <label class="col-sm-1 control-label">Duration</label>
+                    <div class="col-sm-3">
+                        <input asp-for="Education.Duration" class="form-control" placeholder="Duration" />
+                        <span asp-validation-for="Education.Duration" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Passing Year</label>
+                    <div class="col-sm-2">
+                        <input asp-for="Education.Year_Of_Passing" class="form-control" placeholder="" />
+                        <span asp-validation-for="Education.Year_Of_Passing" class="text-danger"></span>
+                    </div>
+                   
+                    <label class="col-sm-1 control-label">Achievement</label>
+                    <div class="col-sm-3">
+                        <input asp-for="Education.Achievement" class="form-control" placeholder="Achievement" />
+                        <span asp-validation-for="Education.Achievement" class="text-danger"></span>
+                    </div>
+                </div>
+                </div>
+            </div>
+        <!-- Button -->
+        <div class="form-group">
+
+            <div class="col-sm-offset-3 btn btn-group">
+                &nbsp;&nbsp;&nbsp;
+                <button id="add-more" name="add-more" class="btn btn-primary">Add More</button>
+            </div>
+            <div class="btn btn-group col-sm-offset-2">
+                <input class="btn btn-info" type="submit" value="Return" asp-controller="Home" asp-action="Index" />
+                <button class="btn btn-primary" type="submit" asp-controller="Edu" asp-action="Create">Save & Continue &nbsp;<i class="fa fa-arrow-circle-right"></i></button>
+            </div>
+
+        </div>
+
+    </form>
+</div>
+<hr />
+<br />
+<br />
+<script type="text/javascript">
+   $(document).ready(function () {
+
+    var next = 0;
+    $("#add-more").click(function(e){
+        e.preventDefault();
+        var addto = "#field" + next;
+        var addRemove = "#field" + (next);
+        next = next + 1;
+        var newIn = ' <div id="field' + next + '" name="field' + next + '"><!-- Text input-->  <div class="form-group"><label class="col-sm-3 control-label">Exam/Degree Title</label><div class="col-sm-6"><input asp-for="Education.Exam_Degree_Title" class="form-control" placeholder="" /><span asp-validation-for="Education.Exam_Degree_Title" class="text-danger"></span></div></div><div class="form-group"><label class="col-sm-3 control-label">Group/Major Subject</label><div class="col-sm-6"><input asp-for="Education.Group_Major_Subject" class="form-control" placeholder="" /><span asp-validation-for="Education.Group_Major_Subject" class="text-danger"></span></div></div><div class="form-group"><label class="col-sm-3 control-label">Institute/University</label><div class="col-sm-6"><input asp-for="Education.Institute_University" class="form-control" placeholder="" /><span asp-validation-for="Education.Institute_University" class="text-danger"></span></div></div><div class="form-group"><label class="col-sm-3 control-label">Result</label><div class="col-sm-2"><input asp-for="Education.Result" class="form-control" placeholder="" /><span asp-validation-for="Education.Result" class="text-danger"></span></div><label class="col-sm-1 control-label">CGPA</label><div class="col-sm-3"><input asp-for="Education.CGPA" class="form-control" placeholder="" /><span asp-validation-for="Education.CGPA" class="text-danger"></span></div></div><div class="form-group"><label class="col-sm-3 control-label">Scale</label><div class="col-sm-2"><input asp-for="Education.Scale" class="form-control" placeholder="Scale" /><span asp-validation-for="Education.Scale" class="text-danger"></span></div><label class="col-sm-1 control-label">Duration</label><div class="col-sm-3"><input asp-for="Education.Duration" class="form-control" placeholder="Duration" /><span asp-validation-for="Education.Duration" class="text-danger"></span></div></div><div class="form-group"><label class="col-sm-3 control-label">Passing Year</label><div class="col-sm-2"><input asp-for="Education.Year_Of_Passing" class="form-control" placeholder="" /><span asp-validation-for="Education.Year_Of_Passing" class="text-danger"></span></div><label class="col-sm-1 control-label">Achievement</label><div class="col-sm-3"><input asp-for="Education.Achievement" class="form-control" placeholder="Achievement" /><span asp-validation-for="Education.Achievement" class="text-danger"></span></div></div>';
+        var newInput = $(newIn);
+        var removeBtn = '<div class=form-group><button id="remove' + (next - 1) + '" class="col-sm-offset-3 btn btn-danger remove-me" >Remove</button></div></div></div><div id="field">';
+        var removeButton = $(removeBtn);
+        $(addto).after(newInput);
+        $(addRemove).after(removeButton);
+        $("#field" + next).attr('data-source',$(addto).attr('data-source'));
+        $("#count").val(next);
+
+            $('.remove-me').click(function(e){
+                e.preventDefault();
+                var fieldNum = this.id.charAt(this.id.length-1);
+                var fieldID = "#field" + fieldNum;
+                $(this).remove();
+                $(fieldID).remove();
+            });
+    });
+
+});
+</script>

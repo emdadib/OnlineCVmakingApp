@@ -1,0 +1,44 @@
+﻿@model Contact
+
+@{
+
+    Layout = "~/Views/Shared/_UserDashboard.cshtml";
+}
+
+<div class="container">
+
+    <div class="col-sm-6">
+        <h2><i class="fa fa-user"></i> Your Personal Information</h2>
+    </div>
+
+</div>
+<hr />
+<div>
+    <ul class="list-group list-group-flush col-sm-10 col-lg-offset-2">
+        <li class="list-group-item col-sm-4">Career Objective</li>
+        <li class="list-group-item col-sm-6">@Model.Objective</li>
+        <li class="list-group-item col-sm-4">Email Address</li>
+        <li class="list-group-item col-sm-6">@Model.Email</li>
+        <li class="list-group-item col-sm-4">Phone Number</li>
+        <li class="list-group-item col-sm-6">@Model.PhoneNumber</li>
+        <li class="list-group-item col-sm-4">Linkedin Profile Url</li>
+        <li class="list-group-item col-sm-6">@Model.LinkdInUrl</li>
+        <li class="list-group-item col-sm-4">Permanent Address</li>
+        <li class="list-group-item col-sm-6">@Model.PermanentAddress</li>
+        <li class="list-group-item col-sm-4">Present Address</li>
+        <li class="list-group-item col-sm-6">@Model.presentAddress</li>
+        <li class="list-group-item col-sm-4">Current Location</li>
+        <li class="list-group-item col-sm-6">@Model.CurrentLocation</li>
+       
+    </ul>
+    <div class="btn btn-group col-lg-offset-2">
+        <a asp-action="Index" class="btn btn-info">Back to List</a>
+        <a asp-action="Update" class="btn btn-success" asp-route-id="@Model.ContactID">Edit Information</a>
+        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@Model.ContactID">Delete</a>
+    </div>
+
+</div>
+<hr />
+
+
+

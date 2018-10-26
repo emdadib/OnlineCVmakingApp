@@ -12,6 +12,8 @@ using Microsoft.EntityFrameworkCore;
 using OCVM.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using OCVM.Data.Interfaces;
+using OCVM.Data.Repository;
 
 namespace OCVM
 {
@@ -34,17 +36,26 @@ namespace OCVM
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+
+            services.AddTransient<IPersonalDetailsRepository, PersonalDetailsRepository>();
+            services.AddTransient<IEducationRepository, EducationRepository>();
+            services.AddTransient<IExperienceRepository, ExperianceRepository>();
+            services.AddTransient<ITrainingRepository, TrainingRepository>();
+            services.AddTransient<IContactRepository, ContactRepository>();
+
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-
+            services.AddDbContext<OcvmContext>(option => 
+                option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider provider)
         {
             if (env.IsDevelopment())
             {
@@ -69,6 +80,8 @@ namespace OCVM
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+           // DbInitialize.Seed(provider.GetRequiredService<OcvmContext>());
         }
     }
 }

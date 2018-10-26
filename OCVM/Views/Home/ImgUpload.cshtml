@@ -1,0 +1,11 @@
+﻿@model PersonalDetail
+@{
+    ViewData["Title"] = "ImgUpload";
+}
+@using (Html.BeginForm("ImgUpload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    @Html.TextBox("file", "", new { type = "file" }) <br />
+    <input type="submit" value="Upload" />
+}
+

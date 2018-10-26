@@ -1,0 +1,43 @@
+﻿@model PersonalDetail
+
+@{
+
+    Layout = "~/Views/Shared/_UserDashboard.cshtml";
+}
+
+<div class="container">
+
+    <div class="col-sm-6">
+        <h2><i class="fa fa-user"></i> Your Personal Information</h2>
+    </div>
+
+</div>
+<hr />
+<div>
+    <ul class="list-group list-group-flush col-sm-10 col-lg-offset-2">
+        <li class="list-group-item col-sm-4">Full Name</li>
+        <li class="list-group-item col-sm-6">@Model.FullName</li>
+        <li class="list-group-item col-sm-4">Father's Name</li>
+        <li class="list-group-item col-sm-6">@Model.FathersName</li>
+        <li class="list-group-item col-sm-4">Mother's Name</li>
+        <li class="list-group-item col-sm-6">@Model.MothersName</li>
+        <li class="list-group-item col-sm-4">Birth Date</li>
+        <li class="list-group-item col-sm-6">@Model.DateOfBirth</li>
+        <li class="list-group-item col-sm-4">Gender</li>
+        <li class="list-group-item col-sm-6">@Model.Gender</li>
+        <li class="list-group-item col-sm-4">Religion</li>
+        <li class="list-group-item col-sm-6">@Model.Religion</li>
+        <li class="list-group-item col-sm-4">Nationality</li>
+        <li class="list-group-item col-sm-6">@Model.Nationality</li>
+        <li class="list-group-item col-sm-4">Marital Status</li>
+        <li class="list-group-item col-sm-6">@Model.MaritalStatus</li>
+    </ul>
+        <div class="btn btn-group col-lg-offset-2">
+            <a asp-action="Index" class="btn btn-info">Back to List</a>
+            <a asp-action="Update" class="btn btn-success" asp-route-id="@Model.PersonalID">Update Information</a>
+        </div>
+    
+</div>
+       <hr />
+  
+

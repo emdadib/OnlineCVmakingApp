@@ -1,0 +1,44 @@
+﻿@model IEnumerable<OCVM.ViewModels.EduViewModel>
+@{
+    ViewData["Title"] = "EduInfo";
+    Layout = "~/Views/Shared/_UserDashboard.cshtml";
+}
+<div class="container">
+
+    <div class="col-sm-6">
+        <h2><i class="fa fa-graduation-cap"></i> Academic Background</h2>
+    </div>
+
+</div>
+<hr />
+<div>
+    @foreach (var item in Model)
+    {
+        <ul class="list-group list-group-flush col-sm-10 col-lg-offset-2">
+            <li class="list-group-item col-sm-4">Exam/Degree Title</li>
+            <li class="list-group-item col-sm-6">@item.Exam_Degree_Title</li>
+            <li class="list-group-item col-sm-4">Group/Major Subject</li>
+            <li class="list-group-item col-sm-6">@item.Group_Major_Subject</li>
+            <li class="list-group-item col-sm-4">Institute/University</li>
+            <li class="list-group-item col-sm-6">@item.Institute_University</li>
+            <li class="list-group-item col-sm-4">Result</li>
+            <li class="list-group-item col-sm-6">@item.Result</li>
+            <li class="list-group-item col-sm-4">CGPA/GPA</li>
+            <li class="list-group-item col-sm-6">@item.CGPA</li>
+            <li class="list-group-item col-sm-4">Out Of</li>
+            <li class="list-group-item col-sm-6">@item.Scale</li>
+            <li class="list-group-item col-sm-4">Year Of Passing</li>
+            <li class="list-group-item col-sm-6">@item.Year_Of_Passing</li>
+            <li class="list-group-item col-sm-4">Course Duration</li>
+            <li class="list-group-item col-sm-6">@item.Duration</li>
+            <li class="list-group-item col-sm-4">Achievement</li>
+            <li class="list-group-item col-sm-6">@item.Achievement</li>
+        </ul>
+
+        <div class="btn btn-group col-lg-offset-2">
+            <a asp-action="Index" class="btn btn-info">Back to List</a>
+            <a asp-action="Update" class="btn btn-success" asp-route-id="@item.EduID">Edit Information</a>
+        </div>
+    }
+</div>
+<hr />

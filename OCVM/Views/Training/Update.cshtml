@@ -1,0 +1,74 @@
+﻿@model OCVM.Models.Training
+
+@{
+    Layout = "~/Views/Shared/_UserDashboard.cshtml";
+}
+
+<div class="container">
+
+    <div class="col-sm-6">
+        <h2><i class="fa fa-edit"></i>Update Your Training Information</h2>
+    </div>
+
+</div>
+<hr />
+
+<div class="container">
+    <form asp-controller="Home" asp-action="Update" method="post" class="form-horizontal" role="form">
+
+        <input type="hidden" asp-for="TrainingID" />
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Training Title</label>
+            <div class="col-sm-6">
+                <input asp-for="Training_Title" class="form-control" placeholder="" />
+                <span asp-validation-for="Training_Title" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Topics Covered</label>
+            <div class="col-sm-6">
+                <input asp-for="Topics_Covered" class="form-control" placeholder="" />
+                <span asp-validation-for="Topics_Covered" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Institute</label>
+            <div class="col-sm-6">
+                <input asp-for="Institute" class="form-control" placeholder="" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Country</label>
+            <div class="col-sm-2">
+                <input asp-for="Country" class="form-control" placeholder="" />
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+            <label class="col-sm-1 control-label">Year</label>
+            <div class="col-sm-3">
+                <input asp-for="Training_Year" class="form-control" placeholder="Training Year" />
+                <span asp-validation-for="Training_Year" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Duration</label>
+            <div class="col-sm-2">
+                <input asp-for="Duration" class="form-control" placeholder="Duration" />
+            </div>
+            <label class="col-sm-1 control-label">Location</label>
+            <div class="col-sm-3">
+                <input asp-for="Location" class="form-control" placeholder="Location" />
+            </div>
+        </div>
+        <!-- Title -->
+
+        <br />
+
+        <div class="form-group">
+            <div class="btn-group col-md-offset-3 col-md-6">
+                <input class="btn btn-info" type="submit" value="Back" asp-controller="Training" asp-action="TrnInfo" />
+                <button class="btn btn-primary" type="submit" asp-controller="Training" asp-action="Update">Update &nbsp;<i class="fa fa-save"></i></button>
+            </div>
+        </div>
+    </form>
+</div>
