@@ -14,6 +14,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OCVM.Data.Interfaces;
 using OCVM.Data.Repository;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace OCVM
 {
@@ -36,7 +38,7 @@ namespace OCVM
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+          //  services.AddSingleton<IActionContextAccessor, IActionContextAccessor>();
             services.AddTransient<IPersonalDetailsRepository, PersonalDetailsRepository>();
             services.AddTransient<IEducationRepository, EducationRepository>();
             services.AddTransient<IExperienceRepository, ExperianceRepository>();
@@ -51,6 +53,9 @@ namespace OCVM
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddDbContext<OcvmContext>(option => 
                 option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            //services.AddScoped(sp => sp.GetRequiredService<IHttpContextAccessor>().HttpContext);
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

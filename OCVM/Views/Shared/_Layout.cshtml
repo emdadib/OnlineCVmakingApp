@@ -10,7 +10,7 @@
     <!-- Basic Page Needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Work Scout</title>
+    <title>OCVM | Online CV Maker</title>
 
     <!-- Mobile Specific Metas
     ================================================== -->
@@ -40,7 +40,7 @@
 
                     <!-- Logo -->
                     <div id="logo">
-                        <h1><a href="~/index-2.html"><img src="~/images/logo2.png" alt="Work Scout" /></a></h1>
+                        <h1><a asp-action="Index" asp-controller="Home"><img src="~/images/logo2.png" alt="Ocvm" /></a></h1>
                     </div>
 
                     <!-- Menu -->
@@ -48,47 +48,21 @@
                         <ul id="responsive">
 
                             <li>
-                                <a href="~/index-2.html" id="current">Home</a>
+                                <a href="#" id="current">Home</a>
+                            </li>
+                            <li>
+                                <a href="~/#">Your CV</a>
                                 <ul>
-                                    <li><a href="~/index-2.html">Home #1</a></li>
-                                    <li><a href="~/index-3.html">Home #2</a></li>
-                                    <li><a href="~/index-4.html">Home #3</a></li>
-                                    <li><a href="~/index-5.html">Home #4</a></li>
-                                    <li><a href="~/index-6.html">Home #5</a></li>
+                                    <li><a asp-controller="Home" asp-action="Create">Add Resume</a></li>
+                                    <li><a asp-controller="Home" asp-action="Edit">Manage Resumes</a></li>
                                 </ul>
                             </li>
 
                             <li>
-                                <a href="~/#">Pages</a>
+                                <a href="#">CV Seeker's</a>
                                 <ul>
-                                    <li><a href="~/job-page.html">Job Page</a></li>
-                                    <li><a href="~/job-page-alt.html">Job Page Alternative</a></li>
-                                    <li><a href="~/resume-page.html">Resume Page</a></li>
-                                    <li><a href="~/shortcodes.html">Shortcodes</a></li>
-                                    <li><a href="~/icons.html">Icons</a></li>
-                                    <li><a href="~/pricing-tables.html">Pricing Tables</a></li>
-                                    <li><a href="~/contact.html">Contact</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="~/#">For Candidates</a>
-                                <ul>
-                                    <li><a href="~/browse-jobs.html">Browse Jobs</a></li>
-                                    <li><a href="~/browse-categories.html">Browse Categories</a></li>
-                                    <li><a href="~/add-resume.html">Add Resume</a></li>
-                                    <li><a href="~/manage-resumes.html">Manage Resumes</a></li>
-                                    <li><a href="~/job-alerts.html">Job Alerts</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="~/#">For Employers</a>
-                                <ul>
-                                    <li><a href="~/add-job.html">Add Job</a></li>
-                                    <li><a href="~/manage-jobs.html">Manage Jobs</a></li>
-                                    <li><a href="~/manage-applications.html">Manage Applications</a></li>
-                                    <li><a href="~/browse-resumes.html">Browse Resumes</a></li>
+                                    <li><a asp-controller="Home" asp-action="PersonalDetail">Browse Resumes</a></li>
+                                
                                 </ul>
                             </li>
 
@@ -120,20 +94,12 @@
                     <div class="search-container">
 
                         <!-- Form -->
-                        <h2>Find Job</h2>
-                        <input type="text" class="ico-01" placeholder="job title, keywords or company name" value="" />
-                        <input type="text" class="ico-02" placeholder="city, province or region" value="" />
-                        <button><i class="fa fa-search"></i></button>
+                        <h2>Find Resume</h2>
+                        <input type="text" class="twelve columns centered"  placeholder="Skills, keywords or company name" value="" />
+                       
+                        <button class="two columns">Search <i class="fa fa-search"></i></button>
 
-                        <!-- Browse Jobs -->
-                        <div class="browse-jobs">
-                            Browse job offers by <a href="~/browse-categories.html"> category</a> or <a href="~/#">location</a>
-                        </div>
-
-                        <!-- Announce -->
-                        <!-- 				<div class="announce">
-                                    We’ve over <strong>15 000</strong> job offers for you!
-                                </div> -->
+                       
 
                     </div>
 
@@ -373,7 +339,7 @@
                             <li><a class="gplus" href="~/#"><i class="icon-gplus"></i></a></li>
                             <li><a class="linkedin" href="~/#"><i class="icon-linkedin"></i></a></li>
                         </ul>
-                        <div class="copyrights">©  Copyright 2018 by <a href="~/#">Work Scout</a>. All Rights Reserved.</div>
+                        <div class="copyrights">©  Copyright 2018 by <a href="~/#">OCVM | Online CV Maker</a>. All Rights Reserved.</div>
                     </div>
                 </div>
             </div>

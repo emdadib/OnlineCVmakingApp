@@ -31,7 +31,7 @@ namespace OCVM.Controllers
             trainingRepository = training;
             contactRepository = contact;
         }
-        [Authorize]
+  
         public IActionResult Index()
         {
             return View();
@@ -85,7 +85,7 @@ namespace OCVM.Controllers
                 return View(detail);
             }
             personalDetails.Update(detail);
-            return RedirectToAction("AllCvDetails");
+            return RedirectToAction("Index");
         }
       
 

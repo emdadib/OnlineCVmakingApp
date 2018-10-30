@@ -10,7 +10,7 @@
     <!-- Basic Page Needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Work Scout</title>
+    <title>OCVM | Online CV Maker</title>
 
     <!-- Mobile Specific Metas
     ================================================== -->
@@ -33,14 +33,14 @@
 
 
         <!-- Header
-        ================================================== -->
-        <header class="transparent sticky-header">
+    ================================================== -->
+        <header class="sticky-header">
             <div class="container">
                 <div class="sixteen columns">
 
                     <!-- Logo -->
                     <div id="logo">
-                        <h1><a href=""><img src="~/images/logo2.png" alt="Work Scout" /></a></h1>
+                        <h1><a href="#"><img src="~/images/logo.png" alt="" /></a></h1>
                     </div>
 
                     <!-- Menu -->
@@ -48,47 +48,21 @@
                         <ul id="responsive">
 
                             <li>
-                                <a href="~/index-2.html" id="current">Home</a>
+                                <a href="#" id="current">Home</a>
+                            </li>
+                            <li>
+                                <a href="~/#">Your CV</a>
                                 <ul>
-                                    <li><a href="~/index-2.html">Home #1</a></li>
-                                    <li><a href="~/index-3.html">Home #2</a></li>
-                                    <li><a href="~/index-4.html">Home #3</a></li>
-                                    <li><a href="~/index-5.html">Home #4</a></li>
-                                    <li><a href="~/index-6.html">Home #5</a></li>
+                                    <li><a asp-controller="Home" asp-action="Create">Add Resume</a></li>
+                                    <li><a asp-controller="Home" asp-action="Edit">Manage Resumes</a></li>
                                 </ul>
                             </li>
 
                             <li>
-                                <a href="~/#">Pages</a>
+                                <a href="#">CV Seeker's</a>
                                 <ul>
-                                    <li><a href="~/job-page.html">Job Page</a></li>
-                                    <li><a href="~/job-page-alt.html">Job Page Alternative</a></li>
-                                    <li><a href="~/resume-page.html">Resume Page</a></li>
-                                    <li><a href="~/shortcodes.html">Shortcodes</a></li>
-                                    <li><a href="~/icons.html">Icons</a></li>
-                                    <li><a href="~/pricing-tables.html">Pricing Tables</a></li>
-                                    <li><a href="~/contact.html">Contact</a></li>
-                                </ul>
-                            </li>
+                                    <li><a asp-controller="Home" asp-action="PersonalDetail">Browse Resumes</a></li>
 
-                            <li>
-                                <a href="~/#">For Candidates</a>
-                                <ul>
-                                    <li><a href="~/browse-jobs.html">Browse Jobs</a></li>
-                                    <li><a href="~/browse-categories.html">Browse Categories</a></li>
-                                    <li><a href="~/add-resume.html">Add Resume</a></li>
-                                    <li><a href="~/manage-resumes.html">Manage Resumes</a></li>
-                                    <li><a href="~/job-alerts.html">Job Alerts</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="~/#">For Employers</a>
-                                <ul>
-                                    <li><a href="~/add-job.html">Add Job</a></li>
-                                    <li><a href="~/manage-jobs.html">Manage Jobs</a></li>
-                                    <li><a href="~/manage-applications.html">Manage Applications</a></li>
-                                    <li><a href="~/browse-resumes.html">Browse Resumes</a></li>
                                 </ul>
                             </li>
 
@@ -96,10 +70,7 @@
                         </ul>
 
 
-                        <ul class="float-right">
-                            <li><a href="~/my-account.html#tab2"><i class="fa fa-user"></i> Sign Up</a></li>
-                            <li><a href="~/my-account.html"><i class="fa fa-lock"></i> Log In</a></li>
-                        </ul>
+                        <partial name="_LoginPartial" />
 
                     </nav>
 
@@ -115,27 +86,19 @@
 
 
         <!-- Banner
-        ================================================== -->
-        <div id="banner" class="with-transparent-header parallax background" style="background-image: url(~/images/banner-home-02.jpg)" data-img-width="2000" data-img-height="1330" data-diff="300">
+    ================================================== -->
+        <div id="titlebar" class="single">
             <div class="container">
                 <div class="sixteen columns">
-
-                    <div class="search-container">
-
-                        <div class="headline" >
-                            <!-- Form -->
-                            <h1 class="align-center color-2"> G E T &nbsp;&nbsp; Y O U R &nbsp; &nbsp; P E R F E C T &nbsp;&nbsp;  E M P L O Y E E </h1>
-
-                        </div>
-                    </div>
-
+                    <h1 class="align-center color-2"> G E T &nbsp;&nbsp; Y O U R &nbsp; &nbsp; P E R F E C T &nbsp;&nbsp;  E M P L O Y E E </h1>
                 </div>
             </div>
         </div>
 
 
+
         <!-- Content
-        ================================================== -->
+    ================================================== -->
         <!-- Categories -->
 
         <div class="container body-content">
@@ -143,7 +106,7 @@
 
         </div>
 
-      
+
 
 
 
@@ -156,7 +119,7 @@
 
 
         <!-- Footer
-        ================================================== -->
+    ================================================== -->
         <div class="margin-top-15"></div>
 
         <div id="footer">
@@ -218,7 +181,7 @@
                             <li><a class="gplus" href="~/#"><i class="icon-gplus"></i></a></li>
                             <li><a class="linkedin" href="~/#"><i class="icon-linkedin"></i></a></li>
                         </ul>
-                        <div class="copyrights">©  Copyright 2018 by <a href="~/#">Work Scout</a>. All Rights Reserved.</div>
+                        <div class="copyrights">©  Copyright 2018 by <a href="~/#">OCVM | Online CV Maker</a>. All Rights Reserved.</div>
                     </div>
                 </div>
             </div>
@@ -346,3 +309,6 @@
 <!-- Mirrored from www.vasterad.com/themes/workscout_1_5/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Jul 2018 19:16:18 GMT -->
 </html>
 
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

@@ -1,0 +1,71 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container">
+
+    <div class="my-account">
+
+        <ul class="tabs-nav">
+            <li class=""><a asp-page="./Login">Login</a></li>
+            <li><a asp-page="./Register">Register</a></li>
+        </ul>
+
+        <div class="tabs-container">
+            <div class="tab-content" id="tab2" style="display: none;">
+                <form asp-route-returnUrl="@Model.ReturnUrl" class="register" method="post">
+                    <p class="form-row form-row-wide">
+                        <label for="username2">
+                            Username:
+                            <i class="ln ln-icon-Male"></i>
+                            <input asp-for="Input.UserName" class="input-text" />
+                            <span asp-validation-for="Input.UserName" class="text-danger"></span>
+                        </label>
+                    </p>
+
+                    <p class="form-row form-row-wide">
+                        <label for="email2">
+                            Email Address:
+                            <i class="ln ln-icon-Mail"></i>
+                            <input asp-for="Input.Email" class="input-text" />
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+
+                        </label>
+                    </p>
+
+                    <p class="form-row form-row-wide">
+                        <label for="password1">
+                            Password:
+                            <i class="ln ln-icon-Lock-2"></i>
+                            <input asp-for="Input.Password" class="input-text" />
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+
+                        </label>
+                    </p>
+
+                    <p class="form-row form-row-wide">
+                        <label for="password2">
+                            Repeat Password:
+                            <i class="ln ln-icon-Lock-2"></i>
+                            <input asp-for="Input.ConfirmPassword" class="input-text" />
+                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+
+                        </label>
+                    </p>
+
+                    <p class="form-row">
+                        <input type="submit" class="button border fw margin-top-10" name="register" value="Register" />
+                    </p>
+
+                </form>
+            </div>
+
+           
+            </div>
+
+
+
+        </div>
+</div>

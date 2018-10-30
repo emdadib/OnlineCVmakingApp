@@ -1,0 +1,46 @@
+﻿@*@model PagedList.Core.IPagedList<OCVM.Models.Experience>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />>
+</head>
+<body>
+    <form method="get" asp-controller="Search" asp-action="search">
+        <input type="text" name="keyword" value="@ViewBag.keyword" />
+        <input type="submit" value="Search"/>
+        @if(Model != null)
+        {
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Skill</th>
+                </tr>
+                @foreach(var Exp in Model)
+                {
+                    <tr>
+                        <td>@Exp.ExperienceID</td>
+                        <td>@Exp.Company_Name</td>
+                        
+                    </tr>
+                    <pager list="@Model" 
+                    asp-controller="Search"
+                    asp-action="search"
+                    asp-route-keyword="@ViewBag.keyword"
+                    />
+                }
+            </table>
+        }
+</form>
+    
+</body>
+</html>*@
