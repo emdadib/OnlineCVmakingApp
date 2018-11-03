@@ -1,0 +1,9 @@
+﻿@model OCVM.ViewModels.UserDashVm
+
+
+<div class="btn btn-group col-sm-offset-4">
+
+    <a asp-action="Show" asp-controller="UserDash" asp-route-id="@Model.PersonalID" class="btn btn-block btn-success"><i class="fa fa-eye"></i>&nbsp;VIEW RESUME</a>
+    <a asp-action="Update" asp-controller="Home" asp-route-id="@Model.PersonalID" class="btn btn-block btn-info"><i class="fa fa-edit"></i>&nbsp;EDIT RESUME</a>
+    
+</div>

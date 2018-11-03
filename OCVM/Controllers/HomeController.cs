@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using Microsoft.AspNetCore.Authorization;
+using OCVM.Data;
 
 namespace OCVM.Controllers
 {
@@ -21,15 +22,16 @@ namespace OCVM.Controllers
         private readonly IExperienceRepository experienceRepository;
         private readonly ITrainingRepository trainingRepository;
         private readonly IContactRepository contactRepository;
+        private readonly ApplicationDbContext userContext;
 
-
-        public HomeController(IPersonalDetailsRepository _repository, IEducationRepository education, IExperienceRepository experience, ITrainingRepository  training, IContactRepository contact )
+        public HomeController(ApplicationDbContext context , IPersonalDetailsRepository _repository, IEducationRepository education, IExperienceRepository experience, ITrainingRepository  training, IContactRepository contact )
         {
             personalDetails = _repository;
             educationRepository = education;
             experienceRepository = experience;
             trainingRepository = training;
             contactRepository = contact;
+            userContext = context;
         }
   
         public IActionResult Index()
@@ -47,6 +49,7 @@ namespace OCVM.Controllers
         {
             List<PersonalView> personals = personalDetails.GetPersonalDetails().Select(m => new PersonalView
             {
+                PersonalID = m.PersonalID,
                 FullName = m.FullName,
                 UserPicture = m.UserPicture,
                 Objective = m.Contacts.Select(a => a.Objective).SingleOrDefault(),
@@ -85,12 +88,25 @@ namespace OCVM.Controllers
                 return View(detail);
             }
             personalDetails.Update(detail);
-            return RedirectToAction("Index");
+            return RedirectToAction("Personal");
         }
       
-
+        [Authorize]
         public ViewResult Create()
         {
+            var usrName = new List<SelectListItem>
+            {
+                new SelectListItem
+                {
+                    Value = userContext.Users.Max(m => m.Id),
+                    Text = userContext.Users.Max(m => m.UserName),
+                  
+
+                }
+            };
+
+            ViewData["user"] = usrName;
+
             return View(new CreateVm { Referer = Request.Headers["Referer"].ToString() });
         }
         [HttpPost]

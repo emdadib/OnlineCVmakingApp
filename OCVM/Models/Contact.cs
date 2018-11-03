@@ -16,7 +16,7 @@ namespace OCVM.Models
         public int PhoneNumber { get; set; }
         public string Email { get; set; }
         public string LinkdInUrl { get; set; }
-
+        public string PrepearedJob { get; set; }
         public string PermanentAddress { get; set; }
         public string presentAddress { get; set; }
         public string CurrentLocation { get; set; }

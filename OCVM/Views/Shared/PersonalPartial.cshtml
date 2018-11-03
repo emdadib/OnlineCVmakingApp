@@ -9,9 +9,18 @@
         <ul class="resumes-list alternative">
 
             <li>
-                <a asp-action="Details" asp-controller="CvView">
-                    @*Details View Link*@
-                    <img src="images/resumes-list-avatar-01.png" alt="">
+                <a asp-action="Details" asp-controller="CvView" asp-route-id="@Model.PersonalID">
+
+                    @if (Model.UserPicture != null && System.IO.File.Exists(System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "wwwroot", "UserImages\\" + Model.UserPicture)))
+                    {
+                        <img src="~/UserImages/@Html.DisplayFor(modelItem => Model.UserPicture)" alt="@Model.UserPicture"
+                             class="img-responsive" />
+                    }
+                    else
+                    {
+                        <img src="~/UserImages/male.png" alt="No Image" class="img-responsive" /> 
+                    }
+                    
                     <div class="resumes-list-content">
                         <h4>@Model.FullName <span>@Model.Skill</span></h4>
                         <span><i class="fa fa-map-marker"></i>@Model.CurrentLocation</span>
@@ -35,12 +44,6 @@
         <div class="clearfix"></div>
 
 
-        @if (Model.UserPicture != null && System.IO.File.Exists(System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "wwwroot", "UserImages\\" + Model.UserPicture)))
-        {
-            <img src="~/UserImages/@Html.DisplayFor(m => m.UserPicture)" alt="@Model.FullName"
-                 width="100" class="img-responsive" />
-
-
-        }
+     
     </div>
 </div>

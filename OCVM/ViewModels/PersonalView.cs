@@ -8,7 +8,7 @@ namespace OCVM.ViewModels
 {
     public class PersonalView
     {
-    
+        public int PersonalID { get; set; }
         public string FullName { get; set; }
         public string UserPicture { get; set; }
         public string Skill { get; set; }

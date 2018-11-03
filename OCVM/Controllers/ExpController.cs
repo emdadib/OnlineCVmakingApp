@@ -108,7 +108,7 @@ namespace OCVM.Controllers
             }
             experienceRepository.Update(exp);
             //Have To Change the Redirect View
-            return RedirectToAction("AllCvDetails");
+            return RedirectToAction("ExpInfo");
         }
 
 

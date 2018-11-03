@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OCVM.Data;
 
 namespace OCVM.Migrations
 {
     [DbContext(typeof(OcvmContext))]
-    partial class OcvmContextModelSnapshot : ModelSnapshot
+    [Migration("20181101201904_id")]
+    partial class id
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,8 +42,6 @@ namespace OCVM.Migrations
                     b.Property<int>("PersonalID");
 
                     b.Property<int>("PhoneNumber");
-
-                    b.Property<string>("PrepearedJob");
 
                     b.Property<string>("presentAddress");
 

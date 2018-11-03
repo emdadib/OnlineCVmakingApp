@@ -1,0 +1,18 @@
+﻿@model OCVM.ViewModels.PersonalView
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+
+                    @if (Model.UserPicture != null && System.IO.File.Exists(System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "wwwroot", "UserImages\\" + Model.UserPicture)))
+                    {
+                        <img src="~/UserImages/@Html.DisplayFor(modelItem => Model.UserPicture)" alt="@Model.UserPicture"
+                             class="img-responsive" />
+                    }
+                    else
+                    {
+                        <img src="~/UserImages/male.png" alt="No Image" class="img-responsive" />
+                    }
+
+                

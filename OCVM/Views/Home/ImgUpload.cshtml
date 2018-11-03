@@ -1,11 +1,42 @@
 ﻿@model PersonalDetail
 @{
-    ViewData["Title"] = "ImgUpload";
-}
-@using (Html.BeginForm("ImgUpload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-
-    @Html.TextBox("file", "", new { type = "file" }) <br />
-    <input type="submit" value="Upload" />
+    Layout = "~/Views/Shared/_UserDashboard.cshtml";
 }
 
+
+
+<section id="container">
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="mail-w3agile">
+                <!-- page start-->
+                <div class="row">
+                    <div class="col-sm-8 com-w3ls">
+                        <section class="panel">
+                            <header class="panel-heading">
+                                Upload Image
+                            </header>
+                            <div class="panel-body">
+                               
+                                   
+                                
+                                
+                                    @using (Html.BeginForm("ImgUpload", "Home", FormMethod.Post, new { enctype = "multipart/form-data",@class= "col-sm-5", id=" ", @placeholder = "Choose file" }))
+                                    {
+                                        @Html.TextBox("file", "", new { @type = "file", @class= "col-sm-8 btn btn-compose", @placeholder="Choose file" })
+                                     
+                                        <input type="submit" class="btn btn-info" value="Upload" />
+                                    }
+                              
+                            </div>
+                        </section>
+
+                    </div>
+                  
+                </div>
+
+                <!-- page end-->
+            </div>
+        </section>
+        </section>
+</section>

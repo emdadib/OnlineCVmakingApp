@@ -1,0 +1,150 @@
+﻿
+@model IEnumerable<OCVM.ViewModels.ViewAll>
+@{
+    Layout = "~/Views/Shared/_CVViews.cshtml";
+}
+<link href="~/UserDash/css/Cv/style.css" rel="stylesheet" />
+
+@foreach (var i in Model)
+{
+    <div class="form-w3layouts">
+        <div id="titlebar" class="resume">
+            <div class="container">
+                <div class="ten columns">
+                    <div class="resume-titlebar">
+
+                        @if (i.UserPicture != null && System.IO.File.Exists(System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "wwwroot", "UserImages\\" + i.UserPicture)))
+                        {
+                            <img src="~/UserImages/@Html.DisplayFor(modelItem => i.UserPicture)" alt="@i.UserPicture"
+                                 class="img-circle" />
+                        }
+                        else
+                        {
+                            <img src="~/UserImages/male.png" alt="No Image" class="img-responsive" />
+                        }
+                        <div class="resumes-list-content">
+                            <h4>@i.FullName<span>@i.Skill</span></h4>
+                            <span class="icons"><i class="fa fa-map-marker"></i> @i.CurrentLocation</span>
+                            <span class="icons"><i class="fa fa-money"></i> @i.ExpectedSalary</span>
+                            <span class="icons"><i class="fa fa-phone"></i> @i.PhoneNumber</span>
+                            <span class="icons"><a href="#"><i class="fa fa-link"></i>@i.LinkdInUrl</a></span>
+                            <span class="icons"><a href="#"><i class="fa fa-envelope"></i>@i.Email</a></span>
+
+                            <div class="skills">
+                                <span class="btn btn-primary">@i.Training_Title</span>
+                                <span class="btn btn-primary">@i.Designation</span>
+                                <span class="btn btn-primary">@i.Exam_Degree_Title</span>
+                            </div>
+                            <div class="clearfix"></div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="six columns">
+                    <div class="two-buttons">
+
+                        <a href="#small-dialog" class="popup-with-zoom-anim button"><i class="fa fa-envelope"></i> Send Message</a>
+
+                        <div id="small-dialog" class="zoom-anim-dialog mfp-hide apply-popup">
+                            <div class="small-dialog-headline">
+                                <h2>Send Message to John Doe</h2>
+                            </div>
+
+                            <div class="small-dialog-content">
+                                <form action="#" method="get">
+                                    <input type="text" placeholder="Full Name" value="" />
+                                    <input type="text" placeholder="Email Address" value="" />
+                                    <textarea placeholder="Message"></textarea>
+
+                                    <button class="send">Send Application</button>
+                                </form>
+                            </div>
+
+                        </div>
+                        <a href="#" class="button dark"><i class="fa fa-star"></i> Bookmark This Resume</a>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="container">
+            <!-- Recent Jobs -->
+            <div class="five columns">
+                <div class="padding-right">
+
+                    <h3 class="margin-bottom-15">About Me</h3>
+
+                    <p class="margin-reset">
+                        @i.Objective
+                    </p>
+                    <br>
+                    <h4>Personal Details</h4><hr />
+                    <ul class="list-1">
+                        <li><strong>Father's Name:</strong><br /> @i.FathersName</li>
+                        <li><strong>Mother's Name:</strong><br /> @i.MothersName</li>
+                        <li><strong>Date Of Birth:</strong><br /> @i.DateOfBirth</li>
+                        <li><strong>Religion:</strong><br /> @i.Religion</li>
+                        <li><strong>Nationality:</strong><br /> @i.Nationality</li>
+                        <li><strong>Marital Status:</strong><br /> @i.MaritalStatus</li>
+
+                        <li><strong>Present Address:</strong> <br /> @i.presentAddress</li>
+                        <li><strong>Permanent Address:</strong><br />@i.PermanentAddress</li>
+
+                    </ul>
+
+                </div>
+            </div>
+
+
+            <!-- Widgets -->
+            <div class="ten columns">
+
+                <h3 class="margin-bottom-20">Education  </h3>
+                @foreach (var b in Model)
+                {<!-- Resume Table -->
+                    <dl class="resume-table">
+                        <dt>
+                            <small class="date">@b.Year_Of_Passing</small>
+                            <strong>@b.Exam_Degree_Title</strong>
+                        </dt>
+                        <dd>
+                            <p>Group/Major Subject: @b.Group_Major_Subject Result: @b.Result, Scale : @b.CGPA Out Of (@b.Scale) <br /> Duration: @b.EduDuration, Achievement : @b.Achievement</p>
+                        </dd>
+                    </dl>
+                }
+                <h3 class="margin-bottom-20">Training  </h3>
+                @foreach (var c in Model)
+                {<!-- Resume Table -->
+                    <dl class="resume-table">
+                        <dt>
+                            <small class="date">@c.Training_Year</small>
+                            <strong>@c.Training_Title</strong>
+                        </dt>
+                        <dd>
+                            <p> <b>Institute: @c.Institute </b> <br /> Topics Covered: @c.Topics_Covered, Country : @c.Country  <br />  Duration : @c.Duration, Location: @c.Location </p>
+                        </dd>
+                    </dl>
+                }
+                <h3 class="margin-bottom-20">Experiance  </h3>
+                @foreach (var e in Model)
+                {<!-- Resume Table -->
+                    <dl class="resume-table">
+                        <dt>
+                            <small class="date">@e.Skill</small>
+                            <strong>@e.Company_Name</strong>
+                        </dt>
+                        <dd>
+                            <p> <b>Designation: @e.Designation </b> <br /> Department: @e.Department, Company Business : @e.Company_Business  <br />  Start Date : @e.start_Date, End Date: @e.End_Date </p>
+                        </dd>
+                    </dl>
+                }
+
+            </div>
+        </div>
+    </div>
+}
+
+

@@ -1,7 +1,6 @@
 ﻿@model PersonalDetail
 
-@{
-
+@{ 
     Layout = "~/Views/Shared/_UserDashboard.cshtml";
 }
 
@@ -33,7 +32,7 @@
         <li class="list-group-item col-sm-6">@Model.MaritalStatus</li>
     </ul>
         <div class="btn btn-group col-lg-offset-2">
-            <a asp-action="Index" class="btn btn-info">Back to List</a>
+            <a asp-action="Index" asp-controller="UserDash" class="btn btn-info">Back to List</a>
             <a asp-action="Update" class="btn btn-success" asp-route-id="@Model.PersonalID">Update Information</a>
         </div>
     

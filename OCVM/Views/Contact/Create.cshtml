@@ -33,6 +33,23 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-sm-3 control-label">Expected Salary</label>
+                    <div class="col-sm-6">
+                        <input asp-for="Contact.ExpectedSalary" class="form-control" placeholder="your current location " />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Job Type</label>
+                    <div class="col-sm-6">
+                        <select asp-for="Contact.PrepearedJob" class="form-control" placeholder="">
+                            <option>Entry Level </option>
+                            <option>Mid Level </option>
+                            <option>Top Level </option>
+                            <option>Part Time </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="col-sm-3 control-label">Email Address</label>
                     <div class="col-sm-6">
                         <input asp-for="Contact.Email" class="form-control" placeholder="example@examle.com" />
@@ -71,6 +88,7 @@
                         <input asp-for="Contact.CurrentLocation" class="form-control" placeholder="your current location " />
                     </div>
                 </div>
+
             </div>
         </div>
         <!-- Button -->

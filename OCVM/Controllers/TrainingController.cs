@@ -71,7 +71,7 @@ namespace OCVM.Controllers
             trainingRepository.Create(create.Training);
 
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("ImgUpload", "Home");
         }
 
         public IActionResult TrnInfo(int id)
@@ -113,7 +113,7 @@ namespace OCVM.Controllers
             }
             trainingRepository.Update(trn);
             //Have To Change the Redirect View
-            return RedirectToAction("AllCvDetails");
+            return RedirectToAction("TrnInfo");
         }
         public IActionResult Delete(int id)
         {

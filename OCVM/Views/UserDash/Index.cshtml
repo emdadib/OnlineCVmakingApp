@@ -1,7 +1,14 @@
-﻿
+﻿@model IEnumerable<OCVM.ViewModels.UserDashVm>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_UserDashboard.cshtml";
 }
+@foreach (var p in Model)
+{
+    @Html.Partial("UserDashPartial", p)
+}
 
-<input class="form-control" value="@ViewBag.Email" />
+
+<div class="btn btn-group col-sm-offset-4">
+    <a asp-controller="Home" asp-action="Create" class="btn btn-block btn-primary"><i class="fa fa-plus"></i>&nbsp;CREATE RESUME</a>
+</div>

@@ -35,7 +35,7 @@
         <header class="header fixed-top clearfix">
             <!--logo start-->
             <div class="brand">
-                <a href="~/UserDash/index.html" class="logo">
+                <a href="#" class="logo">
                     O C V M
                 </a>
                 <div class="sidebar-toggle-box">
@@ -230,18 +230,18 @@
                     <!-- user login dropdown start-->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="~/UserDash/#">
-                            <img alt="" src="~/UserDash/images/2.png">
+                            <img alt="" src="~/UserImages/male.png">
                             <span class="username">@UserManager.GetUserName(User)</span>
                             <b class="caret"></b>
                         </a>
-                            <ul class="dropdown-menu extended logout">
-                                <li><a asp-page="/Account/Manage/Index"> <i class=" fa fa-suitcase"></i>Profile</a></li>
-                                <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-                                <li><a asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })"><i class="fa fa-key"></i> Logout</a></li>
-                           
-                            </ul>
+                        <ul class="dropdown-menu extended logout">
+                            <li><a asp-page="/Account/Manage/Index"> <i class=" fa fa-suitcase"></i>Profile</a></li>
+                            <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+                            <li><a asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })"><i class="fa fa-key"></i> Logout</a></li>
 
+                        </ul>
 
+                       
                     </li>
                 </ul>
                     <!-- user login dropdown end -->
@@ -258,7 +258,7 @@
                 <div class="leftside-navigation">
                     <ul class="sidebar-menu" id="nav-accordion">
                         <li>
-                            <a class="active" href="~/UserDash/index.html">
+                            <a class="active" asp-action="Index" asp-controller="UserDash">
                                 <i class="fa fa-dashboard"></i>
                                 <span>Home</span>
                             </a>
@@ -267,10 +267,12 @@
                         <li class="sub-menu">
                             <a asp-controller="Home" asp-action="Personal">
                                 <i class="fa fa-book"></i>
-                                <span>Personal Details</span>
+                                <span>Details</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="~/UserDash/typography.html">Typography</a></li>
+                                <li>
+                                    <a asp-action="Personal" asp-controller="Home">Personal Details</a>
+                                </li>
                                 <li><a href="~/UserDash/glyphicon.html">glyphicon</a></li>
                                 <li><a href="~/UserDash/grids.html">Grids</a></li>
                             </ul>
@@ -364,11 +366,7 @@
 
             </section>
             <!-- footer -->
-            <div class="footer">
-                <div class="wthree-copyright">
-                    <p>© 2017 Visitors. All rights reserved | Design by <a href="~/UserDash/http://w3layouts.com">W3layouts</a></p>
-                </div>
-            </div>
+          
             <!-- / footer -->
         </section>
         <!--main content end-->

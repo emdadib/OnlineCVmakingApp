@@ -16,6 +16,7 @@ using OCVM.Data.Interfaces;
 using OCVM.Data.Repository;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Logging;
 
 namespace OCVM
 {
@@ -46,13 +47,14 @@ namespace OCVM
             services.AddTransient<IContactRepository, ContactRepository>();
 
 
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<ApplicationDbContext>();
+
             services.AddDbContext<OcvmContext>(option => 
                 option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             //services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             //services.AddScoped(sp => sp.GetRequiredService<IHttpContextAccessor>().HttpContext);
 
@@ -76,9 +78,9 @@ namespace OCVM
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
+           
             app.UseAuthentication();
-
+            
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -90,3 +92,5 @@ namespace OCVM
         }
     }
 }
+
+    

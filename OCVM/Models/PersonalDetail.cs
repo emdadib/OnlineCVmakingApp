@@ -14,6 +14,7 @@ namespace OCVM.Models
         public int PersonalID { get; set; }
         [Required]
         [Display(Name ="Full Name")]
+        public string Id { get; set; }
         public string FullName { get; set; }
         public string FathersName { get; set; }
         public string MothersName { get; set; }

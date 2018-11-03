@@ -17,80 +17,85 @@
 <div class="container">
     <form asp-controller="Home" asp-action="Create" method="post" class="form-horizontal" role="form">
 
-                @Html.HiddenFor(m => m.Referer)
+        @Html.HiddenFor(m => m.Referer)
+        <div class="form-group">
+            <label class="col-sm-3 control-label">You are</label>
+            <div class="col-sm-6">
+                <select asp-for="PersonalDetail.Id" class="form-control" asp-items="@ViewData["user"] as List<SelectListItem>"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Your Full Name</label>
+            <div class="col-sm-6">
+                <input asp-for="PersonalDetail.FullName" class="form-control" placeholder="Religion" />
+                <span asp-validation-for="PersonalDetail.FullName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Father's Name</label>
+            <div class="col-sm-6">
+                <input asp-for="PersonalDetail.FathersName" class="form-control" placeholder="Religion" />
+                <span asp-validation-for="PersonalDetail.FathersName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Mother's Name</label>
+            <div class="col-sm-6">
+                <input asp-for="PersonalDetail.MothersName" class="form-control" placeholder="Religion" />
+                <span asp-validation-for="PersonalDetail.MothersName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Date Of Birth</label>
+            <div class="col-sm-6">
+                <input asp-for="PersonalDetail.DateOfBirth" class="form-control" placeholder="Religion" />
+                <span asp-validation-for="PersonalDetail.DateOfBirth" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Gender</label>
+            <div class="col-sm-6">
+                <select asp-for="PersonalDetail.Gender" class="form-control" placeholder="Date of Birth">
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                </select>
+                <span asp-validation-for="PersonalDetail.Gender" class="text-danger"></span>
+            </div>
+        </div>
 
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Your Full Name</label>
-                    <div class="col-sm-6">
-                        <input asp-for="PersonalDetail.FullName" class="form-control" placeholder="Religion" />
-                        <span asp-validation-for="PersonalDetail.FullName" class="text-danger"></span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Father's Name</label>
-                    <div class="col-sm-6">
-                        <input asp-for="PersonalDetail.FathersName" class="form-control" placeholder="Religion" />
-                        <span asp-validation-for="PersonalDetail.FathersName" class="text-danger"></span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Mother's Name</label>
-                    <div class="col-sm-6">
-                        <input asp-for="PersonalDetail.MothersName" class="form-control" placeholder="Religion" />
-                        <span asp-validation-for="PersonalDetail.MothersName" class="text-danger"></span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Date Of Birth</label>
-                    <div class="col-sm-6">
-                        <input asp-for="PersonalDetail.DateOfBirth" class="form-control" placeholder="Religion" />
-                        <span asp-validation-for="PersonalDetail.DateOfBirth" class="text-danger"></span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Gender</label>
-                    <div class="col-sm-6">
-                        <select asp-for="PersonalDetail.Gender" class="form-control" placeholder="Date of Birth">
-                            <option>Male</option>
-                            <option>Female</option>
-                            <option>Other</option>
-                        </select>
-                        <span asp-validation-for="PersonalDetail.Gender" class="text-danger"></span>
-                    </div>
-                </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Religion</label>
+            <div class="col-sm-6">
+                <input asp-for="PersonalDetail.Religion" class="form-control" placeholder="Religion" />
+                <span asp-validation-for="PersonalDetail.Religion" class="text-danger"></span>
+            </div>
+        </div>
 
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Religion</label>
-                    <div class="col-sm-6">
-                        <input asp-for="PersonalDetail.Religion" class="form-control" placeholder="Religion" />
-                        <span asp-validation-for="PersonalDetail.Religion" class="text-danger"></span>
-                    </div>
-                </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Nationality</label>
+            <div class="col-sm-6">
+                <input asp-for="PersonalDetail.Nationality" class="form-control" placeholder="Nationality" />
+                <span asp-validation-for="PersonalDetail.Nationality" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Marital Status</label>
+            <div class="col-sm-6">
+                <input asp-for="PersonalDetail.MaritalStatus" class="form-control" placeholder="Marital Status" />
+                <span asp-validation-for="PersonalDetail.MaritalStatus" class="text-danger"></span>
+            </div>
+        </div>
+        <!-- Title -->
+        `
+        <br />
 
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Nationality</label>
-                    <div class="col-sm-6">
-                        <input asp-for="PersonalDetail.Nationality" class="form-control" placeholder="Nationality" />
-                        <span asp-validation-for="PersonalDetail.Nationality" class="text-danger"></span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Marital Status</label>
-                    <div class="col-sm-6">
-                        <input asp-for="PersonalDetail.MaritalStatus" class="form-control" placeholder="Marital Status" />
-                        <span asp-validation-for="PersonalDetail.MaritalStatus" class="text-danger"></span>
-                    </div>
-                </div>
-                <!-- Title -->
-                `
-                <br />
-
-                <div class="form-group">
-                    <div class="btn-group col-md-offset-3 col-md-6">
-                        <input class="btn btn-info" type="submit" value="Back" asp-controller="Home" asp-action="Index" />
-                        <button class="btn btn-primary" type="submit" asp-controller="Home" asp-action="Create">Save & Continue &nbsp;<i class="fa fa-arrow-circle-right"></i></button>
-                    </div>
-                </div>
+        <div class="form-group">
+            <div class="btn-group col-md-offset-3 col-md-6">
+                <input class="btn btn-info" type="submit" value="Back" asp-controller="Home" asp-action="Index" />
+                <button class="btn btn-primary" type="submit">Save & Continue &nbsp;<i class="fa fa-arrow-circle-right"></i></button>
+            </div>
+        </div>
     </form>
 </div>
 
