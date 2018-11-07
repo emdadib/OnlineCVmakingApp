@@ -17,6 +17,8 @@ using OCVM.Data.Repository;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
+using Rotativa.AspNetCore;
+
 
 namespace OCVM
 {
@@ -54,10 +56,9 @@ namespace OCVM
 
             services.AddDbContext<OcvmContext>(option => 
                 option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
+           
             //services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             //services.AddScoped(sp => sp.GetRequiredService<IHttpContextAccessor>().HttpContext);
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -87,7 +88,7 @@ namespace OCVM
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-
+            RotativaConfiguration.Setup(env);
            // DbInitialize.Seed(provider.GetRequiredService<OcvmContext>());
         }
     }

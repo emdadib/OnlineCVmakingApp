@@ -6,15 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\images\banner1.svg" />
-    <None Include="wwwroot\images\banner2.svg" />
-    <None Include="wwwroot\images\banner3.svg" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" PrivateAssets="All" />
-    <PackageReference Include="PagedList.Core.Mvc" Version="1.1.0" />
+    <PackageReference Include="rotativa.aspnetCore" Version="1.0.6" />
   </ItemGroup>
 
   <ItemGroup>

@@ -5,5 +5,5 @@
 
     <a asp-action="Show" asp-controller="UserDash" asp-route-id="@Model.PersonalID" class="btn btn-block btn-success"><i class="fa fa-eye"></i>&nbsp;VIEW RESUME</a>
     <a asp-action="Update" asp-controller="Home" asp-route-id="@Model.PersonalID" class="btn btn-block btn-info"><i class="fa fa-edit"></i>&nbsp;EDIT RESUME</a>
-    
+    <a asp-action="Pdf" asp-controller="CvView" asp-route-id="@Model.PersonalID" class="btn btn-block btn-primary"><i class="fa fa-download"></i>&nbsp; Download This Resume</a>
 </div>

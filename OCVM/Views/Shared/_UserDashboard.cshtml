@@ -273,84 +273,18 @@
                                 <li>
                                     <a asp-action="Personal" asp-controller="Home">Personal Details</a>
                                 </li>
-                                <li><a href="~/UserDash/glyphicon.html">glyphicon</a></li>
-                                <li><a href="~/UserDash/grids.html">Grids</a></li>
+
                             </ul>
                         </li>
-                        <li>
-                            <a href="~/UserDash/fontawesome.html">
-                                <i class="fa fa-bullhorn"></i>
-                                <span>Font awesome </span>
-                            </a>
-                        </li>
+                       
                         <li class="sub-menu">
-                            <a href="~/UserDash/javascript:;">
-                                <i class="fa fa-th"></i>
-                                <span>Data Tables</span>
-                            </a>
-                            <ul class="sub">
-                                <li><a href="~/UserDash/basic_table.html">Basic Table</a></li>
-                                <li><a href="~/UserDash/responsive_table.html">Responsive Table</a></li>
-                            </ul>
+                
+                           <a asp-area="Identity" asp-page="/Account/Manage/Index"><i class="fa fa-user-times"></i>Manage Account</a>
+                       
                         </li>
-                        <li class="sub-menu">
-                            <a href="~/UserDash/javascript:;">
-                                <i class="fa fa-tasks"></i>
-                                <span>Form Components</span>
-                            </a>
-                            <ul class="sub">
-                                <li><a href="~/UserDash/form_component.html">Form Elements</a></li>
-                                <li><a href="~/UserDash/form_validation.html">Form Validation</a></li>
-                                <li><a href="~/UserDash/dropzone.html">Dropzone</a></li>
-                            </ul>
-                        </li>
-                        <li class="sub-menu">
-                            <a href="~/UserDash/javascript:;">
-                                <i class="fa fa-envelope"></i>
-                                <span>Mail </span>
-                            </a>
-                            <ul class="sub">
-                                <li><a href="~/UserDash/mail.html">Inbox</a></li>
-                                <li><a href="~/UserDash/mail_compose.html">Compose Mail</a></li>
-                            </ul>
-                        </li>
-                        <li class="sub-menu">
-                            <a href="~/UserDash/javascript:;">
-                                <i class=" fa fa-bar-chart-o"></i>
-                                <span>Charts</span>
-                            </a>
-                            <ul class="sub">
-                                <li><a href="~/UserDash/chartjs.html">Chart js</a></li>
-                                <li><a href="~/UserDash/flot_chart.html">Flot Charts</a></li>
-                            </ul>
-                        </li>
-                        <li class="sub-menu">
-                            <a href="~/UserDash/javascript:;">
-                                <i class=" fa fa-bar-chart-o"></i>
-                                <span>Maps</span>
-                            </a>
-                            <ul class="sub">
-                                <li><a href="~/UserDash/google_map.html">Google Map</a></li>
-                                <li><a href="~/UserDash/vector_map.html">Vector Map</a></li>
-                            </ul>
-                        </li>
-                        <li class="sub-menu">
-                            <a href="~/UserDash/javascript:;">
-                                <i class="fa fa-glass"></i>
-                                <span>Extra</span>
-                            </a>
-                            <ul class="sub">
-                                <li><a href="~/UserDash/gallery.html">Gallery</a></li>
-                                <li><a href="~/UserDash/404.html">404 Error</a></li>
-                                <li><a href="~/UserDash/registration.html">Registration</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="~/UserDash/login.html">
-                                <i class="fa fa-user"></i>
-                                <span>Login Page</span>
-                            </a>
-                        </li>
+                       
+                        <li><a asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="Index"><i class="fa fa-user"></i> Logout</a></li>
+                        
                     </ul>
                 </div>
                 <!-- sidebar menu end-->

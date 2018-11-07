@@ -6,6 +6,7 @@
 
 
 
+<link href="~/UserDash/css/Cv/style.css" rel="stylesheet" />
 @foreach (var i in Model)
 {
     <div id="titlebar" class="resume">
@@ -44,11 +45,11 @@
             <div class="six columns">
                 <div class="two-buttons">
 
-                    <a href="#small-dialog" class="popup-with-zoom-anim button"><i class="fa fa-envelope"></i> Send Message</a>
+                    <a href="@i.Email" class="popup-with-zoom-anim button"><i class="fa fa-envelope"></i> Send Message</a>
 
                     <div id="small-dialog" class="zoom-anim-dialog mfp-hide apply-popup">
                         <div class="small-dialog-headline">
-                            <h2>Send Message to John Doe</h2>
+                            <h2>Send Message to @i.FullName</h2>
                         </div>
 
                         <div class="small-dialog-content">
@@ -56,18 +57,13 @@
                                 <input type="text" placeholder="Full Name" value="" />
                                 <input type="text" placeholder="Email Address" value="" />
                                 <textarea placeholder="Message"></textarea>
-
                                 <button class="send">Send Application</button>
                             </form>
                         </div>
-
                     </div>
-                    <a href="#" class="button dark"><i class="fa fa-star"></i> Bookmark This Resume</a>
-
-
+                   
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -80,7 +76,7 @@
             <div class="padding-right">
 
                 <h3 class="margin-bottom-15">About Me</h3>
-               
+
                 <p class="margin-reset">
                     @i.Objective
                 </p>
@@ -93,10 +89,10 @@
                     <li><strong>Religion:</strong><br /> @i.Religion</li>
                     <li><strong>Nationality:</strong><br /> @i.Nationality</li>
                     <li><strong>Marital Status:</strong><br /> @i.MaritalStatus</li>
-                    
+
                     <li><strong>Present Address:</strong> <br /> @i.presentAddress</li>
                     <li><strong>Permanent Address:</strong><br />@i.PermanentAddress</li>
-                 
+
                 </ul>
 
             </div>
